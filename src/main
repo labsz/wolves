@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "httparty"
+
+require "json"
+require_relative "classes/WolvesApi"
+
+class WolvesCore < WolvesApi
+    def self.init
+        username = ARGV[0]
+        content = WolvesInfos.new(username).getResume
+        return content != 404 ?
+            content : ( raise "Something wrong happened: #{content}" )
+        end
+end
+
+user_info = WolvesCore.init
+puts user_info
+
+# Agora falta vocẽ publicar no seu github...
+# como que eu vou pegar esses arquivos? tem uma opção de baixar a pasta?
+# eu vou publicar na nossa organização :p.
+
+# Ah beleza, Não sei como...
+# Tenta copiar os arquivos para sua Desktop.
+# Você tem que ficar com o github verdinho.
+# tem a opção "download..." mas ela é bugada
+
+# Como assim?
+# Vou te mandar tudo compactado.
